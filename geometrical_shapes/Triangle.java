@@ -27,7 +27,6 @@ public class Triangle implements Drawable {
         return color;
     }
 
-    // Generate a random color
     private Color randomColor() {
         Random rand = new Random();
         return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));

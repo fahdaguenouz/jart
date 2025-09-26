@@ -10,12 +10,17 @@ public class Point implements Drawable {
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        this.color = Color.RED;
+        this.color = randomColor(); 
     }
 
     public static Point random(int maxWidth, int maxHeight) {
         Random rand = new Random();
         return new Point(rand.nextInt(maxWidth), rand.nextInt(maxHeight));
+    }
+
+    private Color randomColor() {
+        Random rand = new Random();
+        return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
     }
 
     public int getX() { return x; }

@@ -13,12 +13,6 @@ public class Image implements Displayable {
         this.width = width;
         this.height = height;
         bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                bufferedImage.setRGB(x, y, Color.BLACK.getRGB());
-            }
-        }
     }
 
     public int getWidth() { return width; }
