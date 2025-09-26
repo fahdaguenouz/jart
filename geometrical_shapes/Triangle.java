@@ -1,6 +1,7 @@
 package geometrical_shapes;
 
 import java.awt.Color;
+import java.util.Random;
 
 public class Triangle implements Drawable {
     private Point p1, p2, p3;
@@ -10,18 +11,26 @@ public class Triangle implements Drawable {
         this.p1 = p1;
         this.p2 = p2;
         this.p3 = p3;
-        this.color = Color.BLACK;
+        this.color = randomColor(); 
     }
 
     @Override
     public void draw(Displayable displayable) {
-        p1.draw(displayable);
-        p2.draw(displayable);
-        p3.draw(displayable);
+
+        new Line(p1, p2).setColor(color).draw(displayable);
+        new Line(p2, p3).setColor(color).draw(displayable);
+        new Line(p3, p1).setColor(color).draw(displayable);
     }
 
     @Override
     public Color getColor() {
         return color;
     }
+
+    // Generate a random color
+    private Color randomColor() {
+        Random rand = new Random();
+        return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
+    }
 }
+

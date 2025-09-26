@@ -3,7 +3,7 @@ import geometrical_shapes.*;
 public class Main {
     public static void main(String[] args) {
         Image image = new Image(1000, 1000);
-        Line line = new Line(new Point(100, 100), new Point(900, 500));
+        Line line = new Line(new Point(60, 200), new Point(900, 500));
       line.draw(image);
         Rectangle rectangle = new Rectangle(new Point(50, 50), new Point(300, 200));
         rectangle.draw(image);
@@ -17,3 +17,4 @@ public class Main {
         image.save("image.png");
     }
 }
+

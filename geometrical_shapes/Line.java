@@ -10,11 +10,16 @@ public class Line implements Drawable {
     public Line(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
-        this.color = randomColor(); 
+        this.color = randomColor();
     }
 
     public static Line random(int maxWidth, int maxHeight) {
         return new Line(Point.random(maxWidth, maxHeight), Point.random(maxWidth, maxHeight));
+    }
+
+    public Line setColor(Color color) {
+        this.color = color;
+        return this;
     }
 
     @Override
@@ -32,7 +37,6 @@ public class Line implements Drawable {
         return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
     }
 
-  
     private void drawDDA(Displayable displayable, int x0, int y0, int x1, int y1, Color color) {
         int dx = x1 - x0;
         int dy = y1 - y0;
