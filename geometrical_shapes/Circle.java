@@ -37,31 +37,37 @@ public class Circle implements Drawable {
     }
 
     private void drawMidpointCircle(Displayable displayable, int xc, int yc, int r, Color color) {
-        int x = 0;
-        int y = r;
-        int d = 3 - 2 * r;
+        double step = 0.01;
 
-        while (y >= x) {
-            plotCirclePoints(displayable, xc, yc, x, y, color);
-            x++;
-
-            if (d > 0) {
-                y--;
-                d = d + 4 * (x - y) + 10;
-            } else {
-                d = d + 4 * x + 6;
-            }
+        for (double theta = 0; theta < 2 * Math.PI; theta += step) {
+            int x = xc + (int) Math.round(r * Math.cos(theta));
+            int y = yc + (int) Math.round(r * Math.sin(theta));
+            displayable.display(x, y, color);
         }
+        // int x = 0;
+        // int y = r;
+        // int d = 3 - 2 * r;
+
+        // while (y >= x) {
+        //     plotCirclePoints(displayable, xc, yc, x, y, color);
+        //     x++;
+        //     if (d > 0) {
+        //         y--;
+        //         d = d + 4 * (x - y) + 10;
+        //     } else {
+        //         d = d + 4 * x + 6;
+        //     }
+        // }
     }
 
-    private void plotCirclePoints(Displayable displayable, int xc, int yc, int x, int y, Color color) {
-        displayable.display(xc + x, yc + y, color);
-        displayable.display(xc - x, yc + y, color);
-        displayable.display(xc + x, yc - y, color);
-        displayable.display(xc - x, yc - y, color);
-        displayable.display(xc + y, yc + x, color);
-        displayable.display(xc - y, yc + x, color);
-        displayable.display(xc + y, yc - x, color);
-        displayable.display(xc - y, yc - x, color);
-    }
+    // private void plotCirclePoints(Displayable displayable, int xc, int yc, int x, int y, Color color) {
+    //     displayable.display(xc + x, yc + y, color);
+    //     displayable.display(xc - x, yc + y, color);
+    //     displayable.display(xc + x, yc - y, color);
+    //     displayable.display(xc - x, yc - y, color);
+    //     displayable.display(xc + y, yc + x, color);
+    //     displayable.display(xc - y, yc + x, color);
+    //     displayable.display(xc + y, yc - x, color);
+    //     displayable.display(xc - y, yc - x, color);
+    // }
 }
