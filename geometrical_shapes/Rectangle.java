@@ -10,7 +10,10 @@ public class Rectangle implements Drawable {
         this.point1 = point1;
         this.point2 = point2;
     }
-
+    public Rectangle() {
+        this.point1 = new Point();
+        this.point2 = new Point();
+    }
     @Override
     public void draw(Displayable d) {
     Point topLeft     = new Point(Math.min(point1.x, point2.x), Math.min(point1.y, point2.y));
