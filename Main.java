@@ -8,7 +8,7 @@ import geometrical_shapes.Triangle;
 import geometrical_shapes.Circle;
 public class Main {
     public static void main(String[] args) {
-        Image image = new Image(1000, 1000);
+         Image image = new Image(1000, 1000);
         Line line = new Line();
         line.draw(image);
         Rectangle rectangle = new Rectangle(new Point(50, 50), new Point(300, 200));
@@ -22,8 +22,13 @@ public class Main {
         }
         for (int i = 0; i < 1000; i++) {
             Point p = new Point();
-        p.draw(image);
+            p.draw(image);
         }
+        // for (int i = 0; i < 4; i++) {
+        //     Triangle triangle2 = new Triangle();
+        //     triangle2.draw(image);
+        // }
+
         image.save("image.png");
     }
 }

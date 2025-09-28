@@ -13,6 +13,12 @@ public class Triangle implements Drawable {
         this.p3 = p3;
         this.color = randomColor(); 
     }
+    public Triangle() {
+        this.p1 = new Point();
+        this.p2 = new Point();
+        this.p3 = new Point();
+        this.color = randomColor(); 
+    }
 
     @Override
     public void draw(Displayable displayable) {
